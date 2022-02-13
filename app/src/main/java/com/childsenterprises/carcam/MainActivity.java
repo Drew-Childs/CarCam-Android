@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Uri videoPath;
 
+    // what do I want to have loaded when the app is launched?
+    // should splash screen display every time?
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,16 +51,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // migrate to splashScreen
+    // determine if there is another way besides Intent
     public void recordButtonPressed(View view) {
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         startActivityForResult(intent, VIDEO_RECORD_CODE);
     }
 
+    // migrate to splashScreen
+    // determine if there is another way besides Intent
     public void captureImageButtonPressed(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, IMAGE_CAPTURE_CODE);
     }
 
+    // may need to change logic if intent changes
+    // would also like to make a function so isn't a block of if/else
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
